@@ -259,13 +259,29 @@ namespace Opc.Ua
         private X509Certificate2 m_certificate;
         #endregion
     }
-        
-	/// <summary>
-	/// The IssuedIdentityToken class.
-	/// </summary>
-	public partial class IssuedIdentityToken
+
+    public enum IssuedTokenType
+    {
+        GenericWSS,
+        SAML,
+        JWT,
+        KerberosBinary
+    };
+
+    /// <summary>
+    /// The IssuedIdentityToken class.
+    /// </summary>
+    public partial class IssuedIdentityToken
 	{
         #region Public Properties
+        /// <summary>
+        /// The type of issued token.
+        /// </summary>
+        public IssuedTokenType IssuedTokenType
+        {
+            get;
+            set;
+        }
         /// <summary>
         /// The decrypted password associated with the token.
         /// </summary>
